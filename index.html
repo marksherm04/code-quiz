@@ -5,8 +5,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Quiz</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/b84704e90a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap">
 </head>
 <body>
-    
+
+        <!-- start quiz button -->
+        <div class="start-btn"><button>Start Quiz</button></div>
+
+        <!-- Info Box -->
+        <div class="info-box">
+            <div class="info-title">
+                <span>Rules for the Quiz</span>
+            </div>
+            <div class="info-list">
+                <div class="info">1. You will have <span>60 seconds</span> to complete the quiz.</div>
+                <div class="info">2. If you get the question wrong, it will deduct <span>10 seconds.</span></div>
+                <div class="info">3. Your score will be based on how much time is left in the quiz.</div>
+                <div class="info">4. High score is listed at the top left of the page.</div>
+                <div class="info">5. Good luck!</div>
+            </div>
+            <div class="buttons">
+                <button class="quit">Exit Quiz</button>
+                <button class="restart">Continue</button>
+            </div>
+        </div>
+
+        <!-- Quiz Box -->
+        <div class="quiz-box">
+            <header>
+                <div class="title">Code Quiz!</div>
+                <div class="timer">
+                    <div class="time-text">Time Left:</div>
+                    <div class="timer-sec">60</div>
+                </div>
+            </header>
+            <section>
+                <div class="que-text">
+                    <span>1. What does HTML stand for?</span>
+                </div>
+                <div class="option-list">
+                    <div class="option">
+                        <span>HyperText Preprocessor</span>
+                        <div class="icon tick"><i class="far fa-check-circle"></i></div>
+                    </div>
+                    <div class="option">
+                        <span>HyperText Markup Language</span>
+                        <div class="icon cross"><i class="far fa-times-circle"></i></i></div>
+                    </div>
+                    <div class="option">
+                        <span>HyperText Mulitple Language</span>
+                    </div>
+                    <div class="option">
+                        <span>HyperTool Multi Language</span>
+                    </div>
+                </div>
+            </section>
+            <!-- Quiz Box Footer-->
+            <footer>
+                <div class="total-que">
+                    <span><p>2</p>Of<p>5</p>Questions</span>
+                </div>
+                <button class="next-btn">Next Question</button>
+            </footer>
+        </div>
 </body>
+
 </html>

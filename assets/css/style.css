@@ -1,0 +1,218 @@
+/* import google font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Girassol', sans-serif;
+}
+
+body{
+    background: salmon;
+}
+
+.start-btn,
+.info-box,
+.quiz-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Start Quiz Button Style */
+.start-btn button{
+    font-size: 25px;
+    font-weight: 500;
+    color: blue;
+    padding: 15px 30px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background: #fff;
+    cursor: pointer;
+}
+
+.start-btn button:hover{
+    background: rgb(121, 86, 121);
+    color: black;
+}
+
+.info-box{
+    display: none;
+    width: 540px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.info-box .info-title{
+    height: 60px;
+    width: 100%;
+    border-bottom: 1px solid grey;
+    display: flex;
+    align-items: center;
+    padding: 0 35px;
+    font-size: 48px;
+    font-weight: 600;
+}
+
+.info-box .info-list{
+padding: 30px 60px;
+}
+
+.info-box .info-list .info{
+    margin: 5px 0;
+    font-size: 16px;
+}
+
+.info-box .info-list .info span{
+    font-weight: 900;
+    color: salmon;
+}
+
+.info-box .buttons{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 35px;
+    border-top: 1px solid gray;
+}
+
+.info-box .buttons button{
+    margin: 0 5px;
+    height: 40px;
+    width: 100px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.buttons button.restart{
+    color: #fff;
+    background: blue;
+    opacity: 80%;
+}
+.buttons button.restart:hover{
+    background: rgb(85, 1, 85);
+}
+
+.buttons button.quit{
+    color: blue;
+}
+
+.buttons button.quit:hover{
+    background: grey;
+}
+
+.quiz-box{
+    width: 550px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.quiz-box header{
+    position: relative;
+    z-index: 99;
+    height: 70px;
+    padding: 0 30px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
+}
+
+.quiz-box header .title{
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: underline 4px rgb(139, 92, 182);
+    padding: 0 10px;
+}
+
+.quiz-box header .timer{
+    display:flex;
+    align-content: center;
+    justify-content: space-between;
+    width: 145px;
+    height: 45px;
+    background: rgb(139, 92, 182);
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.quiz-box header .timer .time-text{
+    font-weight: 500;
+    font-size: 17px;
+    user-select: none;
+}
+
+.quiz-box header .timer .timer-sec{
+    font-size: 18px;
+    font-weight: 500;
+    background: rgb(123, 109, 109);
+    height: 30px;
+    width: 45px;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid grey;
+    user-select: none;
+}
+
+.quiz-box .section{
+    padding: 25px 30px 20px 30px;
+    background: grey;
+}
+
+.quiz-box .section .que-text{
+    font-size: 25px;
+    font-weight: 600;
+}
+
+.que-text{
+    padding-top: 3ex;
+    padding-bottom: 0.5ex;
+}
+.quiz-box section .option-list{
+    padding: 20px 0;
+    display: block;
+}
+
+section .option-list .option{
+    background: lightgray;
+    border: 1px solid peru;
+    border-radius: 5px;
+    padding: 8px 15px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+section .option-list .option:hover{
+    color: salmon;
+    background: #fff;
+}
+
+section .option-list .option:last-child{
+    margin-bottom: 0px;
+}
+
+.option-list .option .icon{
+    height: 26px;
+    width: 26px;
+    border: 2px solid transparent;
+    border-radius: 50%;
+}
