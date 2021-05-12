@@ -34,8 +34,11 @@ var userScore = 0;
 
 var nextBtn = quizBox.querySelector(".next-btn");
 var resultBox = document.querySelector(".result-box");
-var restartQuiz = resultBox.querySelector(".buttons .restart");
-var exitQuiz = resultBox.querySelector(".buttons .quit");
+var exitQuiz = resultBox.querySelector(".buttons .exit");
+
+exitQuiz.onclick = function(){
+    window.location.reload();
+}
 
 // If Next Btton Clicked
 nextBtn.onclick = function(){
@@ -105,8 +108,10 @@ function showResultBox(){
     quizBox.classList.remove("activeQuiz"); // hide the quiz box
     resultBox.classList.add("activeResult"); // show the result box
     var scoreText = resultBox.querySelector(".score-text");
-    
-
+    if(userScore > 0){
+        var scoreTag = '<span><p>Congrats! Your score is '+ userScore + questions.length +'</p></span>';
+        scoreText.innerHTML = scoreTag;
+    }
 };
 
 var startTimer = function(time){
