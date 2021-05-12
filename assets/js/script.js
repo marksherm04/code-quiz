@@ -5,7 +5,6 @@ var exitBtn = infoBox.querySelector(".buttons .exit");
 var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
 var timeCount = quizBox.querySelector(".timer .timer-sec");
-
 var optionList = document.querySelector(".option-list");
 
 // If Start Quiz Button Clicked
@@ -24,12 +23,19 @@ continueBtn.onclick = function() {
     quizBox.classList.add("activeQuiz"); // show the quiz box
     showQuestions(0);
     queCounter(1);
+    startTimer(timeValue);
 };
 
 var queCount = 0;
 var queNumber = 1;
+var counter;
+var timeValue = 45;
+var userScore = 0;
 
-var nextBtn = quizBox.querySelector(".next-btn")
+var nextBtn = quizBox.querySelector(".next-btn");
+var resultBox = document.querySelector(".result-box");
+var restartQuiz = resultBox.querySelector(".buttons .restart");
+var exitQuiz = resultBox.querySelector(".buttons .quit");
 
 // If Next Btton Clicked
 nextBtn.onclick = function(){
@@ -40,6 +46,7 @@ nextBtn.onclick = function(){
        queCounter(queNumber);
     } else{
     console.log("Questions completed"); 
+    showResultBox();
     }
 };
 
@@ -67,9 +74,11 @@ function optionSelected(answer){
     var correctAns = questions[queCount].answer;
     var allOptions = optionList.children.length;
     if(userAns == correctAns){
+        userScore += 1;
+        console.log(userScore);
         answer.classList.add("correct");
-    console.log("answer is correct");
-    answer.insertAdjacentHTML("beforeend", tickIcon);
+        console.log("answer is correct");
+        answer.insertAdjacentHTML("beforeend", tickIcon);
     } 
     else{
         answer.classList.add("wrong");
@@ -88,6 +97,27 @@ function optionSelected(answer){
     //once user selects disable all options
     for (var i = 0; i < allOptions; i++) {
         optionList.children[i].classList.add("disabled");
+    }
+};
+
+function showResultBox(){
+    infoBox.classList.remove("activeInfo"); // hide the info box
+    quizBox.classList.remove("activeQuiz"); // hide the quiz box
+    resultBox.classList.add("activeResult"); // show the result box
+    var scoreText = resultBox.querySelector(".score-text");
+    
+
+};
+
+var startTimer = function(time){
+    counter = setInterval(timer, 1000);
+    function timer(){
+        timeCount.textContent = time; 
+        time--;
+        if(time === 0){
+            clearInterval(counter);
+            timeCount.textContent = 0;
+        }
     }
 };
 

@@ -24,7 +24,8 @@ body{
 }
 
 .info-box.activeInfo,
-.quiz-box.activeQuiz{
+.quiz-box.activeQuiz,
+.result-box.activeResult{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -182,6 +183,15 @@ padding: 30px 60px;
     border-radius: 5px;
     border: 1px solid black;
     user-select: none;
+}
+
+.quiz-box header .time-line{
+    position: absolute;
+    bottom: 0px; 
+    left: 0px;
+    height: 3px;
+    width: 100%;
+    background: rgb(139, 92, 182);
 }
 
 .quiz-box .section{
