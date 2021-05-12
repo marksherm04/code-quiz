@@ -4,6 +4,7 @@ var infoBox = document.querySelector(".info-box");
 var exitBtn = infoBox.querySelector(".buttons .exit");
 var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
+var optionList = document.querySelector(".option-list");
 
 // If Start Quiz Button Clicked
 startBtn.onclick = function() {
@@ -24,7 +25,7 @@ continueBtn.onclick = function() {
 };
 
 var queCount = 0;
-let queNumber = 1;
+var queNumber = 1;
 
 var nextBtn = quizBox.querySelector(".next-btn")
 
@@ -43,7 +44,6 @@ nextBtn.onclick = function(){
 // getting questions and options from array
 function showQuestions(index){
     var queText = document.querySelector(".que-text");
-    var optionList = document.querySelector(".option-list")
     var queTag = '<span>'+ questions[index].number + ". " + questions[index].question +'</span>';
     var optionTag = '<div class="option">'+ questions[index].options[0] +'<span></span></div>'
                     + '<div class="option">'+ questions[index].options[1] +'<span></span></div>'
@@ -51,7 +51,43 @@ function showQuestions(index){
                     + '<div class="option">'+ questions[index].options[3] +'<span></span></div>';
     queText.innerHTML = queTag;
     optionList.innerHTML = optionTag;
+    var option = optionList.querySelectorAll(".option");
+    for (var i = 0; i < option.length; i++) {
+        option[i].setAttribute("onclick", "optionSelected(this)");
+    }
 };
+
+var tickIcon = '<div class="icon tick"><i class="fas fa-check"></i></div>';
+var crossIcon = '<div class="icon cross"><i class="fas fa-times"></i></div>';
+
+function optionSelected(answer){
+    var userAns = answer.textContent;
+    var correctAns = questions[queCount].answer;
+    var allOptions = optionList.children.length;
+    if(userAns == correctAns){
+        answer.classList.add("correct");
+    console.log("answer is correct");
+    answer.insertAdjacentHTML("beforeend", tickIcon);
+    } 
+    else{
+        answer.classList.add("wrong");
+    console.log("answer is wrong");
+    answer.insertAdjacentHTML("beforeend", crossIcon);
+
+    //If answer is incorrect then automatically select the correct answer
+    for (var i = 0; i < allOptions; i++) {
+        if(optionList.children[i].textContent == correctAns) {
+            optionList.children[i].setAttribute("class", "option correct");
+            }
+        }
+    }
+
+    //once user selects disable all options
+    for (var i = 0; i < allOptions; i++) {
+        optionList.children[i].classList.add("disabled");
+    }
+};
+
 
 function queCounter(index){
     var bottomQuesCounter = quizBox.querySelector(".total-que");
