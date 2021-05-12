@@ -4,6 +4,8 @@ var infoBox = document.querySelector(".info-box");
 var exitBtn = infoBox.querySelector(".buttons .exit");
 var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
+var timeCount = quizBox.querySelector(".timer .timer-sec");
+
 var optionList = document.querySelector(".option-list");
 
 // If Start Quiz Button Clicked
@@ -78,6 +80,7 @@ function optionSelected(answer){
     for (var i = 0; i < allOptions; i++) {
         if(optionList.children[i].textContent == correctAns) {
             optionList.children[i].setAttribute("class", "option correct");
+            optionList.children[i].insertAdjacentHTML("beforeend", tickIcon);
             }
         }
     }
@@ -88,9 +91,8 @@ function optionSelected(answer){
     }
 };
 
-
 function queCounter(index){
     var bottomQuesCounter = quizBox.querySelector(".total-que");
     var totalQuesCountTag = '<span><p>'+ queCount +'</p>Of<p>'+ questions.length +'</p>Questions</span>';
     bottomQuesCounter.innerHTML = totalQuesCountTag;
-}
+};
