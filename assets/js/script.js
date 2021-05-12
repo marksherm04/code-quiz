@@ -19,14 +19,42 @@ exitBtn.onclick = function() {
 continueBtn.onclick = function() {
     infoBox.classList.remove("activeInfo"); // hide the info box
     quizBox.classList.add("activeQuiz"); // show the quiz box
-    showQuestions();
+    showQuestions(0);
+    queCounter(1);
 };
 
-let queCount = 0;
+var queCount = 0;
+let queNumber = 1;
+
+var nextBtn = quizBox.querySelector(".next-btn")
+
+// If Next Btton Clicked
+nextBtn.onclick = function(){
+    if(queCount < questions.length - 1){
+       queCount++;
+       queNumber++;
+       showQuestions(queCount); 
+       queCounter(queNumber);
+    } else{
+    console.log("Questions completed"); 
+    }
+};
 
 // getting questions and options from array
-function showQuestions(){
-    const queText = document.querySelector(".que_text");
-    let queTag = '<span>'+ questions[0].question +'</span>';
+function showQuestions(index){
+    var queText = document.querySelector(".que-text");
+    var optionList = document.querySelector(".option-list")
+    var queTag = '<span>'+ questions[index].number + ". " + questions[index].question +'</span>';
+    var optionTag = '<div class="option">'+ questions[index].options[0] +'<span></span></div>'
+                    + '<div class="option">'+ questions[index].options[1] +'<span></span></div>'
+                    + '<div class="option">'+ questions[index].options[2] +'<span></span></div>'
+                    + '<div class="option">'+ questions[index].options[3] +'<span></span></div>';
     queText.innerHTML = queTag;
+    optionList.innerHTML = optionTag;
 };
+
+function queCounter(index){
+    var bottomQuesCounter = quizBox.querySelector(".total-que");
+    var totalQuesCountTag = '<span><p>'+ queCount +'</p>Of<p>'+ questions.length +'</p>Questions</span>';
+    bottomQuesCounter.innerHTML = totalQuesCountTag;
+}

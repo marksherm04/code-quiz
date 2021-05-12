@@ -1,18 +1,18 @@
 // create an array and passing the nmber, questions, options, and answers
 let questions = [
 {
-    numb: 1,
+    number: 1,
     question: "What does HTML stand for?",
     answer: "HyperText Markup Language",
     options: [
-        "HyperText Preprocessor",
+        "HyperText Money Line",
         "HyperText Markup Language",
         "HyperText Multiple Language",
         "HyperTool Multi Language"
     ]
 },
 {
-    numb: 2,
+    number: 2,
     question: "In JavaScript, what is use in conjunction with HTML to 'react' to certain elements?",
     answer: "Events",
     options: [
@@ -23,7 +23,7 @@ let questions = [
     ]
 },
 {
-    numb: 3,
+    number: 3,
     question: "What is the name of the statement that is used to exit or end a loop?",
     answer: "Break statement",
     options: [
@@ -34,7 +34,7 @@ let questions = [
     ]
 },
 {
-    numb: 4,
+    number: 4,
     question: "What elements are used to test for TRUE or False values stored in variables?",
     answer: "Comparison and logical operators",
     options: [
@@ -45,7 +45,7 @@ let questions = [
     ]
 },
 {
-    numb: 5,
+    number: 5,
     question: "In JavaScript, what is a block of code called that is used to perform a specific task?",
     answer: "Function",
     options: [
