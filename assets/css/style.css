@@ -20,9 +20,11 @@ body{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: all 0.3 ease;
 }
 
-.info-box.activeInfo{
+.info-box.activeInfo,
+.quiz-box.activeQuiz{
     z-index: 5;
     opacity: 1;
     pointer-events: auto;
@@ -76,7 +78,7 @@ padding: 30px 60px;
     font-size: 16px;
 }
 
-.info-box .info-list .info span{
+.info-box .info-box .info span{
     font-weight: 900;
     color: salmon;
 }
@@ -94,6 +96,7 @@ padding: 30px 60px;
     margin: 0 5px;
     height: 40px;
     width: 100px;
+    outline: none;
     border: 1px solid transparent;
     border-radius: 5px;
     color: #fff;
@@ -112,11 +115,11 @@ padding: 30px 60px;
     background: rgb(85, 1, 85);
 }
 
-.buttons button.quit{
+.buttons button.exit{
     color: blue;
 }
 
-.buttons button.quit:hover{
+.buttons button.exit:hover{
     background: grey;
 }
 

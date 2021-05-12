@@ -1,46 +1,32 @@
 // get all required elements
-const startBtn = document.querySelector(".start-btn button");
-const infoBox = document.querySelector(".info-box");
-const quitBtn = infoBox.querySelector(".buttons .quit");
-const continueBtn = infoBox.querySelector(".buttons .restart");
+var startBtn = document.querySelector(".start-btn button");
+var infoBox = document.querySelector(".info-box");
+var exitBtn = infoBox.querySelector(".buttons .exit");
+var continueBtn = infoBox.querySelector(".buttons .restart");
+var quizBox = document.querySelector(".quiz-box");
 
 // If Start Quiz Button Clicked
 startBtn.onclick = function() {
-    infoBox.classList.add("activeInfo");
-}
+    infoBox.classList.add("activeInfo"); // show info box
+};
 
-// 1. You will have <span>60 seconds</span> to complete the quiz.
-// 2. If you get the question wrong, it will deduct 10 seconds.
-// 3. Your score will be based on how much time is left in the quiz.
-// 4. High score is listed at top left of the page.
-// 5. Good luck!
+// If Exit Button Clicked
+exitBtn.onclick = function() {
+    infoBox.classList.remove("activeInfo"); // hide the info box
+};
 
-// What does HTML stand for?
-// HyperText Preprocessor
-// HyperText Markup Language
-// HyperText Multiple Language
-// HyperTool Multi Language
+// If Continue Button Clicked
+continueBtn.onclick = function() {
+    infoBox.classList.remove("activeInfo"); // hide the info box
+    quizBox.classList.add("activeQuiz"); // show the quiz box
+    showQuestions();
+};
 
-// 
-// 
-// 
-//
-// 
+let queCount = 0;
 
-// 
-// 
-// 
-// 
-//
-
-// 
-// 
-// 
-// 
-// 
-
-// 
-// 
-// 
-// 
-// 
+// getting questions and options from array
+function showQuestions(){
+    const queText = document.querySelector(".que_text");
+    let queTag = '<span>'+ questions[0].question +'</span>';
+    queText.innerHTML = queTag;
+};
