@@ -26,10 +26,10 @@ continueBtn.onclick = function() {
     startTimer(timeValue);
 };
 
+var timeValue = 45;
 var queCount = 0;
 var queNumber = 1;
 var counter;
-var timeValue = 45;
 var userScore = 0;
 
 var nextBtn = quizBox.querySelector(".next-btn");
@@ -57,7 +57,7 @@ nextBtn.onclick = function(){
 function showQuestions(index){
     var queText = document.querySelector(".que-text");
     var queTag = '<span>'+ questions[index].number + ". " + questions[index].question +'</span>';
-    var optionTag = '<div class="option">'+ questions[index].options[0] +'<span></span></div>'
+    var optionTag =   '<div class="option">'+ questions[index].options[0] +'<span></span></div>'
                     + '<div class="option">'+ questions[index].options[1] +'<span></span></div>'
                     + '<div class="option">'+ questions[index].options[2] +'<span></span></div>'
                     + '<div class="option">'+ questions[index].options[3] +'<span></span></div>';
@@ -77,16 +77,15 @@ function optionSelected(answer){
     var correctAns = questions[queCount].answer;
     var allOptions = optionList.children.length;
     if(userAns == correctAns){
-        userScore += 1;
-        console.log(userScore);
         answer.classList.add("correct");
         console.log("answer is correct");
         answer.insertAdjacentHTML("beforeend", tickIcon);
     } 
     else{
+        timeValue -= 10;
         answer.classList.add("wrong");
-    console.log("answer is wrong");
-    answer.insertAdjacentHTML("beforeend", crossIcon);
+        console.log("answer is wrong");
+        answer.insertAdjacentHTML("beforeend", crossIcon);
 
     //If answer is incorrect then automatically select the correct answer
     for (var i = 0; i < allOptions; i++) {
@@ -111,15 +110,21 @@ function showResultBox(){
     if(userScore > 0){
         var scoreTag = '<span><p>Congrats! Your score is '+ userScore + questions.length +'</p></span>';
         scoreText.innerHTML = scoreTag;
-    }
+    }   
 };
+
+var HighScore = function() {
+    
+}
+
 
 var startTimer = function(time){
     counter = setInterval(timer, 1000);
     function timer(){
-        timeCount.textContent = time; 
-        time--;
-        if(time === 0){
+        console.log("time", time);
+        timeCount.textContent = timeValue; 
+        timeValue--;
+        if(time == 0){
             clearInterval(counter);
             timeCount.textContent = 0;
         }
@@ -128,6 +133,7 @@ var startTimer = function(time){
 
 function queCounter(index){
     var bottomQuesCounter = quizBox.querySelector(".total-que");
-    var totalQuesCountTag = '<span><p>'+ queCount +'</p>Of<p>'+ questions.length +'</p>Questions</span>';
+    var totalQuesCountTag = '<span><p>'+ (queCount + 1) + '</p>Of<p>'+ questions.length +'</p>Questions</span>';
     bottomQuesCounter.innerHTML = totalQuesCountTag;
 };
+

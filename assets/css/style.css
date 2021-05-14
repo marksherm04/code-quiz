@@ -369,3 +369,8 @@ footer .next-btn:hover{
     cursor: pointer;
     transition: all 0.3 ease;
 }
+
+.high-score{
+display: block;
+display: none;
+}
