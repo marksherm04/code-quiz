@@ -7,6 +7,7 @@ var quizBox = document.querySelector(".quiz-box");
 var timeCount = quizBox.querySelector(".timer .timer-sec");
 var optionList = document.querySelector(".option-list");
 
+
 // If Start Quiz Button Clicked
 startBtn.onclick = function() {
     infoBox.classList.add("activeInfo"); // show info box
@@ -30,7 +31,7 @@ var timeValue = 45;
 var queCount = 0;
 var queNumber = 1;
 var counter;
-var userScore = 0;
+var userScore = timeValue;
 
 var nextBtn = quizBox.querySelector(".next-btn");
 var resultBox = document.querySelector(".result-box");
@@ -108,15 +109,10 @@ function showResultBox(){
     resultBox.classList.add("activeResult"); // show the result box
     var scoreText = resultBox.querySelector(".score-text");
     if(userScore > 0){
-        var scoreTag = '<span><p>Congrats! Your score is '+ userScore + questions.length +'</p></span>';
+        var scoreTag = '<span><p>You scored ' + timeValue + ' points!</p></span>';
         scoreText.innerHTML = scoreTag;
     }   
 };
-
-var HighScore = function() {
-    
-}
-
 
 var startTimer = function(time){
     counter = setInterval(timer, 1000);

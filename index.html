@@ -84,19 +84,15 @@
             <div class="buttons">
                 <button class="exit">Try Again!</button>
             </div>
-        </div>
-
-        <div class="high-score">
-            <h2>High Score</h2>
-            <div>
-                <p>Insert name here:
-                    <input type="text" name="" placeholder="Enter Name">
-                </p>
+            <div class="container">
+                <div id="highScores">
+                    <form>
+                        <input type="text" name="username" id="username" placeholder="username">
+                        <button type="submit" class="btn" id="saveScoreBtn" onclick="timeValue(event)">Save</button>
+                    </form>
+                </div>
             </div>
-
-
         </div>
-
 
         <script src="assets/js/questions.js"></script>
         <script src="assets/js/script.js"></script>
