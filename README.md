@@ -16,7 +16,8 @@ Click [here](https://marksherm04.github.io/code-quiz/) to go to Code Quiz.
 
 ## Screenshot
 
-![alt text]()
+(<img width="2555" alt="Screen Shot 2021-05-16 at 12 12 46 PM" src="https://user-images.githubusercontent.com/81338255/118404330-7f9ba100-b640-11eb-8b56-9ade5931ec68.png">
+)
 
 ## Main Features of Site
 
