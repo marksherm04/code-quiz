@@ -370,26 +370,12 @@ footer .next-btn:hover{
     transition: all 0.3 ease;
 }
 
-form {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+#username #btnInsert {
     align-items: center;
+    padding: 10px 5px 10px 5px;
+    margin: 10px 5px 10px 5px;
 }
-
-input {
-    margin-bottom: 1rem;
-    width: 20rem;
-    padding: 1.5rem;
-    font-size: 24px;
-    border: none;
-    box-shadow: 0 0.1rem 1.0rem 0 salmon;
+fieldset {
+    margin-bottom: 20px;
+    padding: 15px;
 }
-
-
-#highScoresList {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 4rem;
-}
-

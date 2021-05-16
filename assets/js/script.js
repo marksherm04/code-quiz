@@ -6,6 +6,20 @@ var continueBtn = infoBox.querySelector(".buttons .restart");
 var quizBox = document.querySelector(".quiz-box");
 var timeCount = quizBox.querySelector(".timer .timer-sec");
 var optionList = document.querySelector(".option-list");
+var inpFirst = document.getElementById("firstName");
+var inpLast = document.getElementById("lastName");
+var btnInsert = document.getElementById("btnInsert");
+var scoreOutput = document.getElementById("scoreOutput");
+
+var timeValue = 60;
+var queCount = 0;
+var queNumber = 1;
+var userScore = timeValue;
+var counter;
+
+var nextBtn = quizBox.querySelector(".next-btn");
+var resultBox = document.querySelector(".result-box");
+var exitQuiz = resultBox.querySelector(".buttons .exit");
 
 
 // If Start Quiz Button Clicked
@@ -27,15 +41,6 @@ continueBtn.onclick = function() {
     startTimer(timeValue);
 };
 
-var timeValue = 45;
-var queCount = 0;
-var queNumber = 1;
-var counter;
-var userScore = timeValue;
-
-var nextBtn = quizBox.querySelector(".next-btn");
-var resultBox = document.querySelector(".result-box");
-var exitQuiz = resultBox.querySelector(".buttons .exit");
 
 exitQuiz.onclick = function(){
     window.location.reload();
@@ -110,17 +115,29 @@ function showResultBox(){
     var scoreText = resultBox.querySelector(".score-text");
     if(userScore > 0){
         var scoreTag = '<span><p>You scored ' + timeValue + ' points!</p></span>';
+        localStorage.setItem("userScore", timeValue);
         scoreText.innerHTML = scoreTag;
     }   
 };
 
+btnInsert.onclick = function () {
+    var first = inpFirst.value;
+    var last = inpLast.value;
+
+    if  (first && last) {
+        localStorage.setItem("fullName", first + " " + last);
+    }
+    scoreOutput.innerHTML = '<p>' + localStorage.getItem("fullName") + " " + localStorage.getItem("userScore") + '<p>';
+
+};
+
+
 var startTimer = function(time){
     counter = setInterval(timer, 1000);
     function timer(){
-        console.log("time", time);
         timeCount.textContent = timeValue; 
         timeValue--;
-        if(time == 0){
+        if(timeValue == 0){
             clearInterval(counter);
             timeCount.textContent = 0;
         }

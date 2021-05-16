@@ -20,7 +20,7 @@
                 <span>Rules for the Quiz</span>
             </div>
             <div class="info-list">
-                <div class="info">1. You will have <span>45 seconds</span> to complete the quiz.</div>
+                <div class="info">1. You will have <span>60 seconds</span> to complete the quiz.</div>
                 <div class="info">2. If you get the question wrong, it will deduct <span>10 seconds.</span></div>
                 <div class="info">3. Your score will be based on how much time is left in the quiz.</div>
                 <div class="info">4. High score is listed at the top left of the page.</div>
@@ -38,7 +38,7 @@
                 <div class="title">Code Quiz!</div>
                 <div class="timer">
                     <div class="time-text">Time Left:</div>
-                    <div class="timer-sec">45</div>
+                    <div class="timer-sec">60</div>
                 </div> 
                 <div class="time-line"></div>
             </header>
@@ -84,14 +84,16 @@
             <div class="buttons">
                 <button class="exit">Try Again!</button>
             </div>
-            <div class="container">
-                <div id="highScores">
-                    <form>
-                        <input type="text" name="username" id="username" placeholder="username">
-                        <button type="submit" class="btn" id="saveScoreBtn" onclick="timeValue(event)">Save</button>
-                    </form>
-                </div>
-            </div>
+                <fieldset>
+                    <legend>User Name</legend>
+                        <input type="text" id="firstName" placeholder="First">
+                        <input type="text" id="lastName" placeholder="Last"><br><br>
+                        <button type="button" id="btnInsert">Submit Score</button>
+                </fieldset>
+                <fieldset>
+                    <legend>High Score</legend>
+                        <div id="scoreOutput"></div>
+                </fieldset>
         </div>
 
         <script src="assets/js/questions.js"></script>
